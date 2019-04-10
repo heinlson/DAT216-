@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" stylesheets="@recipe_listitem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="imageView" fitHeight="118.0" fitWidth="118.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="recipeImage" fitHeight="90.0" fitWidth="90.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="5.0">
          <image>
-            <Image url="@resources/logo.png" />
-         </image></ImageView>
-      <Label fx:id="recipeName" layoutX="180.0" layoutY="10.0" prefHeight="30.0" prefWidth="294.0" text="Hej" wrapText="true" />
+            <Image url="@../../recipes/recipe1.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="recipeName" layoutX="112.0" layoutY="14.0" text="Stekt Ägg" />
+      <ImageView fx:id="flagImage" fitHeight="24.0" fitWidth="33.0" layoutX="64.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ingredientImage" fitHeight="24.0" fitWidth="23.0" layoutX="112.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="difficultyImage" fitHeight="17.0" fitWidth="43.0" layoutX="173.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="recipeTime" layoutX="156.0" layoutY="39.0" text="Label" />
+      <Label fx:id="recipePrice" layoutX="362.0" layoutY="14.0" text="Label" />
+      <Label fx:id="recipeDescription" layoutX="195.0" layoutY="50.0" prefHeight="48.0" prefWidth="272.0" text="Label" wrapText="true" />
    </children>
+   <styleClass>
+      <String fx:value="staticHint" />
+      <String fx:value="recipe-list-item" />
+   </styleClass>
 </fx:root>

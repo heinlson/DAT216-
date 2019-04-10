@@ -1,29 +1,28 @@
 package recipesearch;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import recipesearch.RecipeSearchController;
 import se.chalmers.ait.dat215.lab2.Recipe;
-import javafx.event.Event;
+
 import java.io.IOException;
 
 public class RecipeListItem extends AnchorPane {
-    @FXML private Label recipeName;
-    @FXML private ImageView imageView;
-    @FXML private AnchorPane anchorPane;
-
     private RecipeSearchController parentController;
     private Recipe recipe;
 
-    @FXML
-    protected void onClick(Event event){
-        parentController.openRecipeView(recipe);
-    }
-
+    @FXML private AnchorPane anchorPane;
+    @FXML private ImageView recipeImage; //stekt ägg
+    @FXML private ImageView flagImage;
+    @FXML private ImageView difficultyImage;
+    @FXML private ImageView ingredientImage;
+    @FXML private Label recipeName;
+    @FXML private Label recipeTime;
+    @FXML private Label recipePrice;
+    @FXML private Label recipeDescription;
 
 
     public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
@@ -36,16 +35,42 @@ public class RecipeListItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException();
         }
+
         this.recipe = recipe;
         this.parentController = recipeSearchController;
 
-        //Om du skrivit det här har du förbrukat all din rätt att kalla dig själv programmerare. image.set(politiker.sd.jimmyboy.images.disappointed)
+
         try{
-            this.imageView.setImage(recipe.getFXImage());
-        }catch(Exception exc){
+            this.recipeImage.setImage(recipe.getFXImage());
+        }catch (Exception exc){
             throw new RuntimeException();
         }
 
+        try{
+            this.flagImage.setImage(parentController.getCuisineImage(recipe.getCuisine()));
+        }catch (Exception exc){
+            throw new RuntimeException();
+        }
+        try{
+            this.difficultyImage.setImage(parentController.getDifficultyImage(recipe.getDifficulty()));
+        }catch (Exception exc){
+            throw new RuntimeException();
+        }
+        try{
+            this.ingredientImage.setImage(parentController.getMainIngrediantImage(recipe.getMainIngredient()));
+        }catch (Exception exc){
+            throw new RuntimeException();
+        }
+
+        recipeTime.setText(String.valueOf(recipe.getTime()) + " minuter");
+        recipePrice.setText(String.valueOf(recipe.getPrice()) + " kr");
+        recipeDescription.setText(recipe.getDescription());
+
         this.recipeName.setText(recipe.getName());
+    }
+
+    @FXML
+    protected void onClick(Event event){
+        parentController.openRecipeView(recipe);
     }
 }

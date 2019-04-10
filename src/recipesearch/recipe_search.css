@@ -1,2 +1,42 @@
 
+.text-area .content {
+    -fx-background-color: -fx-background;
+}
 
+.text-area  {
+    -fx-background-color: -fx-background;
+}
+
+
+.text-normal{
+    -fx-font-size: 13px;
+    -fx-font-family: "sans-serif";
+
+}
+
+
+.text-smaller{
+    -fx-font-size: 11px;
+    -fx-font-family: "sans-serif";
+}
+
+.text-larger{
+    -fx-font-size: 15px;
+    -fx-font-family: "sans-serif";
+}
+
+.background-colour{
+    -fx-fill: rgba(0,0,0,0.75);
+}
+
+#logoMainText{
+    -fx-font-size: 48px;
+    -fx-font-family: "Phosphate";
+}
+
+#logoSubText{
+    -fx-font-size: 64px;
+    -fx-font-family: "SignPainter";
+    -fx-text-fill: #FFAC33;
+    -fx-rotate: -20;
+}
